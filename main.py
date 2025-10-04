@@ -11,7 +11,7 @@ ctk.set_default_color_theme(theme_path)
 class NoteApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("Программая моя!")
+        self.root.title("Note app!")
         self.root.geometry("650x750")
 
         search_entry = ctk.CTkEntry(self.root, width=300, placeholder_text="Поиск по заметкам...")
@@ -80,7 +80,7 @@ class NoteApp:
 
         for clickable in note, note_widget:
             clickable.bind("<Button-1>", lambda e: self.open_note_window(note_data))
-            clickable.bind("<Enter>", lambda e: note.configure(cursor="hand2"))  # "hand2" = палец (как в браузере)
+            clickable.bind("<Enter>", lambda e: note.configure(cursor="hand2"))
             clickable.bind("<Leave>", lambda e: note.configure(cursor=""))
 
     def open_note_window(self, note_data):
@@ -171,5 +171,4 @@ if __name__ == "__main__":
     try:
         root.mainloop()
     finally:
-        print("Сохраняю файлы")
         app.save_notes_local()
